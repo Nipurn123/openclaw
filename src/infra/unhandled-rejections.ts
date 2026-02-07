@@ -131,8 +131,8 @@ export function isTransientNetworkError(err: unknown): boolean {
         ? (err as { name: string }).name
         : "";
   const isTypeError = err instanceof TypeError || errorName === "TypeError";
-  const hasFetchFailedMessage = errorMessage.includes("fetch failed");
-  if ((isTypeError || hasFetchFailedMessage) && hasFetchFailedMessage) {
+  const hasFetchFailedMessage = errorMessage === "fetch failed";
+  if (isTypeError && hasFetchFailedMessage) {
     const cause = getErrorCause(err);
     if (cause) {
       return isTransientNetworkError(cause);
