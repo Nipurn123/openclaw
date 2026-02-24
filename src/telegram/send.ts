@@ -1100,7 +1100,7 @@ export async function sendDiceTelegram(
         if (opts.emoji) {
           return api.sendDice(chatId, opts.emoji, params);
         }
-        return api.sendDice(chatId, undefined as unknown as "🎲", params);
+        return api.sendDice(chatId, "🎲", params);
       };
       return requestWithChatNotFound(sendDiceCall, label);
     },
