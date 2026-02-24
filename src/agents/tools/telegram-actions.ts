@@ -380,7 +380,7 @@ export async function handleTelegramAction(
     const to = readStringParam(params, "to", { required: true });
     const emoji = readStringParam(params, "emoji");
     if (emoji && !["🎲", "🎯", "🏀", "⚽", "🎳", "🎰"].includes(emoji)) {
-      throw new Error(`Invalid dice emoji: ${emoji}. Must be one of: 🎲 🎯 🏀 ⚽🎳 🎰`);
+      throw new Error(`Invalid dice emoji: ${emoji}. Must be one of: 🎲 🎯 🏀 ⚽ 🎳 🎰`);
     }
     const validEmoji = emoji as TelegramDiceEmoji | undefined;
     const replyToMessageId = readNumberParam(params, "replyToMessageId", {
