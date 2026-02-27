@@ -220,8 +220,7 @@ export class AcpSessionManager {
     return await this.withSessionActor(sessionKey, async () => {
       const backend = this.deps.requireRuntimeBackend(input.backendId || input.cfg.acp?.backend);
       const runtime = backend.runtime;
-      const permissionProfile =
-        input.permissionProfile ?? input.cfg.acp?.runtime?.permissionProfile;
+      const permissionProfile = input.permissionProfile;
       const initialRuntimeOptions = validateRuntimeOptionPatch({
         cwd: input.cwd,
         ...(permissionProfile ? { permissionProfile } : {}),
